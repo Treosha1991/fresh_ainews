@@ -1,5 +1,6 @@
 # config.py
+import os
 
-TELEGRAM_TOKEN = "7152971039:AAFQSuWBefyQvlHPT1_5nEKycqPuCcM1vyk"
-CHANNEL_ID = "@fresh_AInews"
-OPENAI_API_KEY = "ваш_openai_ключ"
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
