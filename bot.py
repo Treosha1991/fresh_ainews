@@ -38,11 +38,13 @@ def get_ai_news():
         response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=data)
         response.encoding = 'utf-8'
         result = response.json()
+        print("Ответ OpenAI:", result)
         text = result["choices"][0]["message"]["content"]
         text = text.replace("<h2>", "<b>").replace("</h2>", "</b>")
         return text
     except Exception as e:
         print(f"❌ Ошибка при получении новости: {e}")
+        print(" ! Текст ответа OpenAI:", response.text)
         return None
 
 def generate_dalle_image(prompt):
