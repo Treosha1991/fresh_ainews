@@ -83,7 +83,7 @@ async def post_news():
     try:
         if image_url:
             await bot.send_photo(chat_id=CHANNEL_ID, photo=image_url, caption=news, parse_mode="HTML")
-            logging.info("✅ Новость с изображением опубликована.")
+            print("✅ Новость с изображением опубликована.")
         else:
             await bot.send_message(chat_id=CHANNEL_ID, text=news, parse_mode="HTML")
             logging.info("✅ Новость без изображения опубликована.")
@@ -98,6 +98,8 @@ schedule.every().day.at("18:00").do(scheduled_post)
 
 # Разовая публикация при запуске
 asyncio.run(post_news())
+expert Exception as e:
+print("Ошибка при плановой публикации:", e)
 
 print("🤖 Бот запущен... Ожидаем публикаций.")
 while True:
