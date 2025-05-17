@@ -13,8 +13,7 @@ import sys
 logging.basicConfig(
     format='%(asctime)s - %(message)s',
     level=logging.INFO,
-    stream=sys.stdout,
-    encoding='utf-8'
+    handlers=[logging.StreamHandler(sys.stdout)]
     )
 bot = Bot(token=TELEGRAM_TOKEN)
 
