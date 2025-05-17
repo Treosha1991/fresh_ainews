@@ -93,12 +93,12 @@ def scheduled_post():
 schedule.every().day.at("08:00").do(scheduled_post)
 schedule.every().day.at("17:00").do(scheduled_post)
 
-
+print("Тест: запускаем постинг вручную...")
 try:
     asyncio.run(post_news())
 except Exception as e:
     print("Ошибка при запуске:", e)
-
+print("ок Если ты видишь это сообщение - код дошел до конца.")
 
 while True:
     schedule.run_pending()
