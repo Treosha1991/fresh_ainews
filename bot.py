@@ -9,7 +9,13 @@ from datetime import datetime
 from telegram import Bot
 from config import TELEGRAM_TOKEN, CHANNEL_ID, OPENAI_API_KEY
 
-logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+import sys
+logging.basicConfig(
+    format='%(asctime)s - %(message)s',
+    level=logging.INFO,
+    stream=sys.stdout,
+    encoding='utf-8'
+    )
 bot = Bot(token=TELEGRAM_TOKEN)
 
 def get_ai_news():
