@@ -1,6 +1,6 @@
 # bot.py
 
-import logging
+
 import requests
 import schedule
 import time
@@ -9,12 +9,7 @@ from datetime import datetime
 from telegram import Bot
 from config import TELEGRAM_TOKEN, CHANNEL_ID, OPENAI_API_KEY
 
-import sys
-logging.basicConfig(
-    format='%(asctime)s - %(message)s',
-    level=logging.INFO,
-    handlers=[logging.StreamHandler(sys.stdout)]
-    )
+
 bot = Bot(token=TELEGRAM_TOKEN)
 
 def get_ai_news():
@@ -47,7 +42,7 @@ def get_ai_news():
         text = text.replace("<h2>", "<b>").replace("</h2>", "</b>")
         return text
     except Exception as e:
-        logging.error(f"❌ Ошибка при получении новости: {e}")
+        print(f"❌ Ошибка при получении новости: {e}")
         return None
 
 def generate_dalle_image(prompt):
@@ -67,7 +62,7 @@ def generate_dalle_image(prompt):
         result = response.json()
         return result["data"][0]["url"]
     except Exception as e:
-        logging.error(f"❌ Ошибка при генерации изображения: {e}")
+        print(f"❌ Ошибка при генерации изображения: {e}")
         return None
 
 async def post_news():
@@ -86,9 +81,9 @@ async def post_news():
             print("✅ Новость с изображением опубликована.")
         else:
             await bot.send_message(chat_id=CHANNEL_ID, text=news, parse_mode="HTML")
-            logging.info("✅ Новость без изображения опубликована.")
+            print("✅ Новость без изображения опубликована.")
     except Exception as e:
-        logging.error(f"❌ Ошибка при публикации в Telegram: {e}")
+        print(f"❌ Ошибка при публикации в Telegram: {e}")
 
 def scheduled_post():
     asyncio.run(post_news())
