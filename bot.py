@@ -98,11 +98,11 @@ schedule.every().day.at("18:00").do(scheduled_post)
 
 # Разовая публикация при запуске
 try:
-asyncio.run(post_news())
+    asyncio.run(post_news())
 except Exception as e:
-print("Ошибка при запуске:", e)
+    print("Ошибка при запуске:", e)
 
-print("🤖 Бот запущен... Ожидаем публикаций.")
+    print("🤖 Бот запущен... Ожидаем публикаций.")
 while True:
     schedule.run_pending()
     time.sleep(30)
