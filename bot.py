@@ -98,7 +98,7 @@ schedule.every().day.at("18:00").do(scheduled_post)
 
 # Разовая публикация при запуске
 asyncio.run(post_news())
-expert Exception as e:
+except Exception as e:
 print("Ошибка при плановой публикации:", e)
 
 print("🤖 Бот запущен... Ожидаем публикаций.")
