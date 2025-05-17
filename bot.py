@@ -89,15 +89,15 @@ def scheduled_post():
     asyncio.run(post_news())
 
 schedule.every().day.at("08:00").do(scheduled_post)
-schedule.every().day.at("18:00").do(scheduled_post)
+schedule.every().day.at("17:00").do(scheduled_post)
 
-# Разовая публикация при запуске
+
 try:
     asyncio.run(post_news())
 except Exception as e:
     print("Ошибка при запуске:", e)
 
-    print("🤖 Бот запущен... Ожидаем публикаций.")
+
 while True:
     schedule.run_pending()
-    time.sleep(30)
+    time.sleep(1)
