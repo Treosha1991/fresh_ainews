@@ -8,7 +8,10 @@ import asyncio
 from datetime import datetime
 from telegram import Bot
 from config import TELEGRAM_TOKEN, CHANNEL_ID, OPENAI_API_KEY
-
+print("Переменные загружены")
+print("TELEGRAM_TOKEN:", TELEGRAM_TOKEN[:5], "...")
+print("CHANNEL_ID:", CHANNEL_ID)
+print("OPENAI_API_KEY:", OPENAI_API_KEY[:5], "...")
 
 bot = Bot(token=TELEGRAM_TOKEN)
 
