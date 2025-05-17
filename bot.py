@@ -19,7 +19,7 @@ bot = Bot(token=TELEGRAM_TOKEN)
 
 def get_ai_news():
     today = datetime.now().strftime("%d.%m.%Y")
-    logging.info(f"🔍 Запрашиваем новость на дату: {today}")
+    print(f"🔍 Запрашиваем новость на дату: {today}")
 
     prompt = (
         f"Сгенерируй одну свежую новость из мира науки и технологий (AI, изобретения, космос, медицина и т.п.) "
@@ -51,7 +51,7 @@ def get_ai_news():
         return None
 
 def generate_dalle_image(prompt):
-    logging.info(f"🧠 Генерируем изображение по теме: {prompt}")
+    print(f"🧠 Генерируем изображение по теме: {prompt}")
     headers = {
         "Authorization": f"Bearer {OPENAI_API_KEY}",
         "Content-Type": "application/json"
